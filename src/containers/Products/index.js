@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 import ProductsLogo from "../../assets/logo-products.svg"
 import { Container, ProductsImg, CategoryButton, CategoriesMenu, ProductsContainer } from "./styles"
 import api from "../../services/api"
-import CardProduct from "../../components/CardProduct";
+import {CardProduct} from "../../components";
 import formatCurrency from "../../utils/formatCurrency";
 
 
-function Products() {
+export function Products() {
 
     const [categories, setCategories] = useState([])
     const [products, setProducts] = useState([])
-    const [activeCategory, setActiveCategory] = useState(0)
+    const [activeCategories, setActiveCategories] = useState(0)
+    const [filterProducts, setFilterProducts] = useState([])
 
     useEffect(() => {
 
@@ -25,10 +26,10 @@ function Products() {
 
         async function loadProducts() {
             const { data: allProducts } = await api.get("products")
-                       
-            const newProducts = allProducts.map( product => {
-                return {...product, formatedPrice: formatCurrency(product.price)}
-            })  
+
+            const newProducts = allProducts.map(product => {
+                return { ...product, formatedPrice: formatCurrency(product.price) }
+            })
 
             setProducts(newProducts)
         }
@@ -37,6 +38,18 @@ function Products() {
         loadProducts()
 
     }, [])
+
+    useEffect(() => {
+
+        if (activeCategories === 0) {
+            setFilterProducts(products)
+        } else {
+            const newFilterProducts = products.filter(product => product.category_id === activeCategories)
+
+            setFilterProducts(newFilterProducts)
+        }
+    }, [activeCategories, products])
+
 
     return (
         <Container>
@@ -48,9 +61,9 @@ function Products() {
                         <CategoryButton
                             type="button"
                             key={category.id}
-                            isActiveCategory={activeCategory === category.id}
+                            isactivecategories={String(activeCategories === category.id)}
                             onClick={() => {
-                                setActiveCategory(category.id)
+                                setActiveCategories(category.id)
                             }}>
                             {category.name}
                         </CategoryButton>
@@ -58,8 +71,8 @@ function Products() {
             </CategoriesMenu>
 
             <ProductsContainer>
-                {products &&
-                    products.map(product => (
+                {filterProducts &&
+                    filterProducts.map(product => (
                         <CardProduct key={product.id} product={product} />
                     ))}
             </ProductsContainer>
@@ -70,4 +83,3 @@ function Products() {
 }
 
 
-export default Products

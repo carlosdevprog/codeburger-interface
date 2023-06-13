@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 background: #E5E5E5;
-
+min-height: 100vh;
 `
 
 
@@ -19,17 +19,17 @@ margin-top: 20px;
 
 
 export const CategoryButton = styled.button`
-font-style: normal;
-font-weight: 400;
-font-size: 17px;
-line-height: 20px;
-color: ${props => props.isActiveCategory ? "#9758A6" : "#9A9A9D"};
-cursor: pointer;
-background: none;
-border: none;
-border-bottom: ${props => props.isActiveCategory && "2px solid #9758A6"};
-padding-bottom: 5px;
-transition: 0.1s;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  color: ${props => props.isactivecategories === "true" ? "#9758A6" : "#9A9A9D"};
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-bottom: ${props => props.isactivecategories === "true" && "2px solid #9758A6"};
+  padding-bottom: 5px;
+  transition: 0.1s;
 `
 
 export const ProductsContainer = styled.div`

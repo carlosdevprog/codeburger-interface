@@ -8,7 +8,7 @@ import {
     SignUpLink,
     ErrorMessage
 } from "./styles";
-import Button from "../../components/Button"
+import {Button} from "../../components"
 import { Link, useNavigate } from "react-router-dom";
 import BurgerLogin from "../../assets/burger-login.svg";
 import Logo from "../../assets/logo.svg";
@@ -21,7 +21,7 @@ import { useUser } from "../../hooks/UserContext"
 
 
 
-function Login() {
+export function Login() {
     const navigate = useNavigate()
     const { putUserData } = useUser()
     const schema = Yup.object().shape({
@@ -83,4 +83,3 @@ function Login() {
     )
 }
 
-export default Login

@@ -8,7 +8,7 @@ import {
     SignInLink,
     ErrorMessage
 } from "./styles";
-import Button from "../../components/Button"
+import {Button} from "../../components"
 import { Link } from "react-router-dom";
 import BurgerRegister from "../../assets/burger-register.svg";
 import Logo from "../../assets/logo.svg";
@@ -20,7 +20,7 @@ import { toast } from 'react-toastify';
 
 
 
-function Register() {
+export function Register() {
     const schema = Yup.object().shape({
         name: Yup.string().required("O seu nome é obrigatório."),
         email: Yup.string().email("Digite um email válido.").required("O email é obrigatório."),
@@ -94,4 +94,3 @@ function Register() {
     )
 }
 
-export default Register
