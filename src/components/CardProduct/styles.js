@@ -32,7 +32,7 @@ font-weight: normal;
 font-size: 16px;
 line-height: 19px;
 color: #000000;
-width: 60%;
+width: 80%;
 `
 
 
