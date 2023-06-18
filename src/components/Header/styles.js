@@ -37,7 +37,7 @@ font-weight: ${props => props.isactive === "true" ? '700' : '300'};
 
 export const ContainerText = styled.div`
 
-p{
+  p{
     font-style: normal;
 font-weight: 300;
 font-size: 14px;
