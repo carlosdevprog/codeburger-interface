@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet, Navigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Header } from "../components/Header";
 
 function PrivateRoute({ element, ...rest }) {
 
@@ -9,7 +10,12 @@ function PrivateRoute({ element, ...rest }) {
         return <Navigate to="/login" replace />
     }
 
-    return <Outlet {...rest} element={element} />
+    return (
+        <>
+            <Header />
+            <Outlet {...rest} element={element} />
+        </>
+    )
 
 }
 
