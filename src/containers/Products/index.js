@@ -2,15 +2,21 @@ import React, { useEffect, useState } from "react";
 import ProductsLogo from "../../assets/logo-products.svg"
 import { Container, ProductsImg, CategoryButton, CategoriesMenu, ProductsContainer } from "./styles"
 import api from "../../services/api"
-import {CardProduct} from "../../components";
+import { CardProduct } from "../../components";
 import formatCurrency from "../../utils/formatCurrency";
+import PropTypes from "prop-types";
 
 
-export function Products() {
+export function Products({ location: { state } }) {
+
+    let categoryId = 0
+    if(state.categoryId){
+        categoryId = state.categoryId
+    }
 
     const [categories, setCategories] = useState([])
     const [products, setProducts] = useState([])
-    const [activeCategories, setActiveCategories] = useState(0)
+    const [activeCategories, setActiveCategories] = useState(categoryId)
     const [filterProducts, setFilterProducts] = useState([])
 
     useEffect(() => {
@@ -82,4 +88,8 @@ export function Products() {
     )
 }
 
+
+Products.propTypes = {
+    location: PropTypes.object
+}
 

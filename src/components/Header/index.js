@@ -18,8 +18,8 @@ export function Header() {
     return (
         <Container>
             <ContainerLeft>
-                <PageLink onClick={() => navigate("/")} isActive={pathname === '/'}>Home</PageLink>
-                <PageLink onClick={() => navigate("/produtos")} isActive={pathname.includes('produtos')}>Ver Produtos</PageLink>
+                <PageLink onClick={() => navigate("/")} isactive={String(pathname === '/')}>Home</PageLink>
+                <PageLink onClick={() => navigate("/produtos")} isactive={String(pathname.includes('produtos'))}>Ver Produtos</PageLink>
             </ContainerLeft>
 
             <ContainerRight>

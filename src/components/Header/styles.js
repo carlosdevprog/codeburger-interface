@@ -29,12 +29,11 @@ gap: 20px;
 export const PageLink = styled.a`
 cursor: pointer;
 text-decoration: none;
-color: ${props => props.isActive ? '#9758A6' : '#555555'};
+color: ${props => props.isactive === "true" ? '#9758A6' : '#555555'};
 font-size: 16px;
 line-height: 19px;
-font-weight: ${props => props.isActive ? '700' : '300'};
+font-weight: ${props => props.isactive === "true" ? '700' : '300'};
 `
-
 
 export const ContainerText = styled.div`
 
