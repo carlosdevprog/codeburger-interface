@@ -5,19 +5,25 @@ import api from "../../services/api"
 import { CardProduct } from "../../components";
 import formatCurrency from "../../utils/formatCurrency";
 import PropTypes from "prop-types";
-
+// import { useLocation } from 'react-router-dom'
 
 export function Products({ location: { state } }) {
-
+    
     let categoryId = 0
-    if(state.categoryId){
+    if (state?.categoryId) {
         categoryId = state.categoryId
     }
-
     const [categories, setCategories] = useState([])
     const [products, setProducts] = useState([])
-    const [activeCategories, setActiveCategories] = useState(categoryId)
     const [filterProducts, setFilterProducts] = useState([])
+    const [activeCategories, setActiveCategories] = useState(categoryId)
+    // const { state } = useLocation()
+
+    // useEffect(() => {
+    //     if (state?.categoryId) {
+    //         setActiveCategories(state?.categoryId)
+    //     }
+    // }, [state?.categoryId])
 
     useEffect(() => {
 
@@ -92,4 +98,5 @@ export function Products({ location: { state } }) {
 Products.propTypes = {
     location: PropTypes.object
 }
+
 
