@@ -5,25 +5,21 @@ import api from "../../services/api"
 import { CardProduct } from "../../components";
 import formatCurrency from "../../utils/formatCurrency";
 import PropTypes from "prop-types";
-// import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
-export function Products({ location: { state } }) {
-    
-    let categoryId = 0
-    if (state?.categoryId) {
-        categoryId = state.categoryId
-    }
+export function Products() {    
+   
     const [categories, setCategories] = useState([])
     const [products, setProducts] = useState([])
     const [filterProducts, setFilterProducts] = useState([])
-    const [activeCategories, setActiveCategories] = useState(categoryId)
-    // const { state } = useLocation()
+    const [activeCategories, setActiveCategories] = useState(0)
+    const { state } = useLocation()
 
-    // useEffect(() => {
-    //     if (state?.categoryId) {
-    //         setActiveCategories(state?.categoryId)
-    //     }
-    // }, [state?.categoryId])
+    useEffect(() => {
+        if (state?.categoryId) {
+            setActiveCategories(state?.categoryId)
+        }
+    }, [state?.categoryId])
 
     useEffect(() => {
 
@@ -56,7 +52,7 @@ export function Products({ location: { state } }) {
         if (activeCategories === 0) {
             setFilterProducts(products)
         } else {
-            const newFilterProducts = products.filter(product => product.category_id === activeCategories)
+            const newFilterProducts = products.filter((product) => product.category_id === activeCategories)
 
             setFilterProducts(newFilterProducts)
         }
@@ -84,7 +80,7 @@ export function Products({ location: { state } }) {
 
             <ProductsContainer>
                 {filterProducts &&
-                    filterProducts.map(product => (
+                    filterProducts.map((product) => (
                         <CardProduct key={product.id} product={product} />
                     ))}
             </ProductsContainer>
@@ -98,5 +94,3 @@ export function Products({ location: { state } }) {
 Products.propTypes = {
     location: PropTypes.object
 }
-
-
