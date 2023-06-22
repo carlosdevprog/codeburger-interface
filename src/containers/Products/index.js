@@ -4,22 +4,23 @@ import { Container, ProductsImg, CategoryButton, CategoriesMenu, ProductsContain
 import api from "../../services/api"
 import { CardProduct } from "../../components";
 import formatCurrency from "../../utils/formatCurrency";
-import PropTypes from "prop-types";
-import { useLocation } from 'react-router-dom'
+// import PropTypes from "prop-types";
+import { useLocation } from 'react-router-dom';
+
 
 export function Products() {    
    
+    const { state } = useLocation()
     const [categories, setCategories] = useState([])
     const [products, setProducts] = useState([])
     const [filterProducts, setFilterProducts] = useState([])
-    const [activeCategories, setActiveCategories] = useState(0)
-    const { state } = useLocation()
+    const [activeCategories, setActiveCategories] = useState(state?.categoryId ?? 0 )
 
-    useEffect(() => {
-        if (state?.categoryId) {
-            setActiveCategories(state?.categoryId)
-        }
-    }, [state?.categoryId])
+    // useEffect(() => {
+    //     if (state?.categoryId) {
+    //         setActiveCategories(state.categoryId)
+    //     }
+    // }, [state?.categoryId])
 
     useEffect(() => {
 
@@ -66,7 +67,7 @@ export function Products() {
             <CategoriesMenu>
                 {categories &&
                     categories.map(category => (
-                        <CategoryButton
+                        <CategoryButton                                
                             type="button"
                             key={category.id}
                             isactivecategories={String(activeCategories === category.id)}
@@ -91,6 +92,8 @@ export function Products() {
 }
 
 
-Products.propTypes = {
-    location: PropTypes.object
-}
+// Products.propTypes = {
+//     location: PropTypes.object
+// }
+
+
