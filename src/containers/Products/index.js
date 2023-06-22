@@ -4,7 +4,7 @@ import { Container, ProductsImg, CategoryButton, CategoriesMenu, ProductsContain
 import api from "../../services/api"
 import { CardProduct } from "../../components";
 import formatCurrency from "../../utils/formatCurrency";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { useLocation } from 'react-router-dom';
 
 
@@ -14,38 +14,38 @@ export function Products() {
     const [categories, setCategories] = useState([])
     const [products, setProducts] = useState([])
     const [filterProducts, setFilterProducts] = useState([])
-    const [activeCategories, setActiveCategories] = useState(state?.categoryId ?? 0 )
-
-    // useEffect(() => {
-    //     if (state?.categoryId) {
-    //         setActiveCategories(state.categoryId)
-    //     }
-    // }, [state?.categoryId])
+    const [activeCategories, setActiveCategories] = useState(state?.categoryId ?? 0)
 
     useEffect(() => {
-
+        if (state?.categoryId) {
+            setActiveCategories(state.categoryId)
+        }
+    }, [state?.categoryId])
+    
+    useEffect(() => {
+        
         async function loadCategories() {
             const { data } = await api.get("categories")
-
+            
             const newCategories = [{ id: 0, name: "Tudo" }, ...data]
-
+            
             setCategories(newCategories)
         }
-
-
+        
+        
         async function loadProducts() {
             const { data: allProducts } = await api.get("products")
-
+            
             const newProducts = allProducts.map(product => {
                 return { ...product, formatedPrice: formatCurrency(product.price) }
             })
-
+            
             setProducts(newProducts)
         }
-
+        
         loadCategories()
         loadProducts()
-
+        
     }, [])
 
     useEffect(() => {
@@ -67,6 +67,7 @@ export function Products() {
             <CategoriesMenu>
                 {categories &&
                     categories.map(category => (
+                        
                         <CategoryButton                                
                             type="button"
                             key={category.id}
@@ -76,6 +77,7 @@ export function Products() {
                             }}>
                             {category.name}
                         </CategoryButton>
+                        
                     ))}
             </CategoriesMenu>
 
@@ -92,8 +94,8 @@ export function Products() {
 }
 
 
-// Products.propTypes = {
-//     location: PropTypes.object
-// }
+Products.propTypes = {
+    location: PropTypes.object
+}
 
 

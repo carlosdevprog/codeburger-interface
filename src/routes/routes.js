@@ -15,7 +15,6 @@ function AppRoutes() {
                 <Route element={<PrivateRoute />}>
                     <Route path="/" exact element={<Home />} />
                     <Route path="/produtos" element={<Products />} />
-                    <Route path="/categories/:id" element={<Products />} />
                     <Route path="/carrinho" element={<Cart />} />
                 </Route>
             </Routes>
@@ -24,4 +23,3 @@ function AppRoutes() {
 }
 
 export default AppRoutes
-

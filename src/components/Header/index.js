@@ -8,7 +8,7 @@ import { useUser } from "../../hooks/UserContext"
 export function Header() {
     const navigate = useNavigate();
     const { pathname } = useLocation();
-    const { logout } = useUser()
+    const { logout, userData } = useUser()
 
     const logoutUser = () => {
         logout()
@@ -31,7 +31,7 @@ export function Header() {
                     <img src={Person} alt="pessoa" />
                 </PageLink>
                 <ContainerText>
-                    <p>Olá, Carlos</p>
+                    <p>Olá, {userData.name}</p>
                     <LinkExit onClick={logoutUser}>Sair</LinkExit>
                 </ContainerText>
             </ContainerRight>
