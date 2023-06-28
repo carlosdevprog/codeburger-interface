@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-height: 72px;
+height: 60px;
 background: #ffffff;
 box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.15);
 display: flex;
 align-items: center;
 flex-direction: row;
 justify-content: space-around;
+
 `
 
 
