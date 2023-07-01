@@ -5,10 +5,9 @@ import {
     ContainerItens,
     Label,
     Input,
-    SignUpLink,
-    ErrorMessage
+    SignUpLink,    
 } from "./styles";
-import {Button} from "../../components"
+import {Button, ErrorMessage} from "../../components"
 import { Link, useNavigate } from "react-router-dom";
 import BurgerLogin from "../../assets/burger-login.svg";
 import Logo from "../../assets/logo.svg";

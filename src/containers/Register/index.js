@@ -6,9 +6,8 @@ import {
     Label,
     Input,
     SignInLink,
-    ErrorMessage
 } from "./styles";
-import {Button} from "../../components"
+import {Button, ErrorMessage} from "../../components"
 import { Link } from "react-router-dom";
 import BurgerRegister from "../../assets/burger-register.svg";
 import Logo from "../../assets/logo.svg";
