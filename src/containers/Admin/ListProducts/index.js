@@ -41,7 +41,7 @@ function ListProducts() {
         return <CancelIcon style={{ color: '#cc1717' }} />
     }
 
-    function editProduct(product) {
+    const editProduct = product => {
         navigate(paths.EditProducts, { state: { product } })
     }
 
