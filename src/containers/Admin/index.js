@@ -7,19 +7,20 @@ import PropTypes from "prop-types"
 import paths from "../../constants/paths"
 import NewProduct from "./NewProduct"
 import EditProduct from "./EditProduct"
+import { useLocation } from 'react-router-dom'
 
 
-
-export function Admin({ match: { path } }) {
+export function Admin() {
+    const location = useLocation()
 
     return (
         <Container>
-            <SideMenuAdmin path={path}/>
+            <SideMenuAdmin path={location.pathname} />
             <ContainerItems>
-                {path === paths.requests && <Orders />}
-                {path === paths.listProducts && <ListProducts />}
-                {path === paths.newProduct && <NewProduct />}
-                {path === paths.editProducts && <EditProduct />}
+                {location.pathname === paths.requests && <Orders />}
+                {location.pathname === paths.listProducts && <ListProducts />}
+                {location.pathname === paths.newProduct && <NewProduct />}
+                {location.pathname === paths.editProducts && <EditProduct />}
             </ContainerItems>
         </Container>
     )
