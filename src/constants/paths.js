@@ -1,6 +1,6 @@
 const paths = {
     cart: '/carrinho',
-    editProducts: 'editar-produtos',
+    EditProducts: 'editar-produtos',
     home: '/',
     listProducts: '/listar-produtos',
     login: '/login',

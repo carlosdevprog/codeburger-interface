@@ -42,7 +42,7 @@ function ListProducts() {
     }
 
     function editProduct(product) {
-        navigate(paths.editProducts, { state: { product } })
+        navigate(paths.EditProducts, { state: { product } })
     }
 
     return (
