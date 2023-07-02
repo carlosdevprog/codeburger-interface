@@ -12,7 +12,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import CancelIcon from '@mui/icons-material/Cancel';
 import formatCurrency from './../../../utils/formatCurrency';
 import { useNavigate } from "react-router-dom";
-import paths from './../../../constants/paths';
+// import paths from './../../../constants/paths';
 
 
 
@@ -42,7 +42,7 @@ function ListProducts() {
     }
 
     const editProduct = product => {
-        navigate(paths.EditProducts, { state: { product } })
+        navigate("/editar-produto", { state: { product } })
     }
 
     return (
