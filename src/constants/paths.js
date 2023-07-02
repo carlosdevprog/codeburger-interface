@@ -5,7 +5,7 @@ const paths = {
     listProducts: '/listar-produtos',
     login: '/login',
     newProduct: '/novo-produto',
-    products: '/products',
+    products: '/produtos',
     register: '/cadastro',
     requests: '/pedidos',
 }
