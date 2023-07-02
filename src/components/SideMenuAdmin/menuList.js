@@ -20,7 +20,7 @@ const list = [
 
     {
         id: 3,
-        label: 'Novo Produtos',
+        label: 'Novo Produto',
         link: paths.newProduct,
         icon: InventoryIcon
     },
