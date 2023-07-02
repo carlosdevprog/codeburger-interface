@@ -21,7 +21,7 @@ function AppRoutes() {
                     <Route path={paths.requests} element={<Admin />} isAdmin />
                     <Route path={paths.listProducts} element={<Admin />} isAdmin />
                     <Route path={paths.newProduct} element={<Admin />} isAdmin />
-                    <Route path={paths.editProducts} element={<Admin />} isAdmin />
+                    <Route path={paths.EditProducts} element={<Admin />} isAdmin />
                 </Route>
 
             </Routes>
