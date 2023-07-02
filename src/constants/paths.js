@@ -1,5 +1,5 @@
 const paths = {
-    cart: '/carrinho,',
+    cart: '/carrinho',
     editProducts: 'editar-produtos',
     home: '/',
     listProducts: '/listar-produtos',
