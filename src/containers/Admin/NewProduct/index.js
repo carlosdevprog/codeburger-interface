@@ -9,6 +9,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { ErrorMessage } from "../../../components";
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import paths from "../../../constants/paths";
 
 
 function NewProduct() {
@@ -52,7 +53,7 @@ function NewProduct() {
         })
 
         setTimeout(() => {            
-                navigate("/lisar-produtos")            
+                navigate(paths.listProducts)            
         }, 2000)
     }
 
