@@ -18,7 +18,7 @@ function AppRoutes() {
                     <Route path={paths.home} exact element={<Home />} />
                     <Route path={paths.products} element={<Products />} />
                     <Route path={paths.cart} element={<Cart />} />
-                    <Route path={paths.requests} element={<Admin />} isAdmin />
+                    <Route path='/pedidos' element={<Admin />} isAdmin />
                     <Route path={paths.listProducts} element={<Admin />} isAdmin />
                     <Route path={paths.newProduct} element={<Admin />} isAdmin />
                     <Route path={paths.editProducts} element={<Admin />} isAdmin />
