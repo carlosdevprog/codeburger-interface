@@ -42,7 +42,7 @@ function ListProducts() {
     }
 
     const editProduct = product => {
-        navigate("/editar-produto", { state: { product } })
+        navigate("/editar-produtos", { state: { product } })
     }
 
     return (

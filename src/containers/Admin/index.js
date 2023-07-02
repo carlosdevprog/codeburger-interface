@@ -20,7 +20,7 @@ export function Admin() {
                 {location.pathname === paths.requests && <Orders />}
                 {location.pathname === paths.listProducts && <ListProducts />}
                 {location.pathname === paths.newProduct && <NewProduct />}
-                {location.pathname === paths.editProduct && <EditProduct />}
+                {location.pathname === paths.EditProducts && <EditProduct />}
             </ContainerItems>
         </Container>
     )
